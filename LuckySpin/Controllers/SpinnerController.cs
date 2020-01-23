@@ -10,6 +10,7 @@ namespace LuckySpin.Controllers
     public class SpinnerController : Controller
     {
         Random random;
+
         //TODO: Create a new instance variable of type RepoService 
 
         /***
@@ -35,7 +36,10 @@ namespace LuckySpin.Controllers
         [HttpPost]
         public IActionResult Index(Player player)
         {
+            if (ModelState.IsValid)           
             return RedirectToAction("Spin", player);
+            return View();
+            
         }
 
         /***
